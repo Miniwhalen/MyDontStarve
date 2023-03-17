@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
     private PlayerStatus status;
     private PlayerCraft craft;
 
+    //animator
+    private Animator anim;
+
     private void Awake()
     {
         Instance = this;
@@ -57,6 +60,8 @@ public class PlayerController : MonoBehaviour
         collect = new PlayerCollect(inventory);
         status = new PlayerStatus();
         craft = new PlayerCraft(inventory);
+
+        anim = GetComponent<Animator>();
 
     }
 
@@ -218,7 +223,7 @@ public class PlayerController : MonoBehaviour
     public void ChangeHealth(int amount)
     {
         status.setStatus(0, status.health + amount);
-
+        anim.SetTrigger("Damaged");
         if (status.health==0)
         {
             status.Death();

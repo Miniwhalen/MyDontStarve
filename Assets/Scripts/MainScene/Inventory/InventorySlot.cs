@@ -38,7 +38,7 @@ public class InventorySlot : MonoBehaviour,IPointerClickHandler,IBeginDragHandle
     public void ThrowThisItem()
     {
         if (item == ItemType.EMPTY) return;
-        GameObject dropItemGO = Instantiate(ResourceManager.dropItemPrefab, PlayerController.Instance.transform.position, Quaternion.identity);
+        GameObject dropItemGO = Instantiate(ResourceManager.interactableGOs["DropItem"], PlayerController.Instance.transform.position, Quaternion.identity);
         dropItemGO.GetComponent<DropItemController>().SetItem(item);
         ChangeItem(ItemType.EMPTY);
     }

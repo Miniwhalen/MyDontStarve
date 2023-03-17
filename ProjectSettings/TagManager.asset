@@ -10,6 +10,7 @@ TagManager:
   - Interact.COBBLE
   - Interact.STICKDOWN
   - Furniture.Bonfire
+  - Interact.DropItem
   layers:
   - Default
   - TransparentFX

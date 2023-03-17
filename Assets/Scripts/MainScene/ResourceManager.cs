@@ -7,13 +7,15 @@ public class ResourceManager : MonoBehaviour
     public static Dictionary<string, Sprite> itemSprites;
     public static Dictionary<string, GameObject> furnitureGOs;
     public static Dictionary<string, GameObject> equipmentGOs;
-    public static GameObject dropItemPrefab;
+    public static Dictionary<string, GameObject> interactableGOs;
+    public static GameObject enemyGO;
 
     static ResourceManager()
     {
         itemSprites = new Dictionary<string, Sprite>();
         furnitureGOs = new Dictionary<string, GameObject>();
         equipmentGOs = new Dictionary<string, GameObject>();
+        interactableGOs = new Dictionary<string, GameObject>();
         Sprite[] sprites = Resources.LoadAll<Sprite>("Pics/MainScene/Item");
         foreach (var sprite in sprites)
         {
@@ -29,7 +31,11 @@ public class ResourceManager : MonoBehaviour
         {
             equipmentGOs.Add(prefab.name, prefab);
         }
-        dropItemPrefab = Resources.Load<GameObject>("Prefabs/Interactable/DropItem");
-
+        GameObject[] interactables = Resources.LoadAll<GameObject>("Prefabs/Interactable");
+        foreach (var interactable in interactables)
+        {
+            interactableGOs.Add(interactable.name, interactable);
+        }
+        enemyGO = Resources.Load<GameObject>("Prefabs/Enemy/Pigman");
     }
 }
