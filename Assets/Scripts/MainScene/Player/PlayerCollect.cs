@@ -21,26 +21,36 @@ public class PlayerCollect
 
     }
 
-    public void Collect(CollectableType type)
+    public void Collect(CollectableType type,out bool isRightTool)
     {
+        int isFull = 0;
         switch (type)
         {
             case CollectableType.WOOD:
-                inventory.AddItem(ItemType.LOG);
+                isFull = inventory.AddItem(ItemType.LOG);
                 break;
             case CollectableType.STONE:
-                inventory.AddItem(ItemType.STONE_PIECE);
+                isFull = inventory.AddItem(ItemType.STONE_PIECE);
                 break;
             case CollectableType.FOOD:
-                inventory.AddItem(ItemType.BERRIES);
+                isFull = inventory.AddItem(ItemType.BERRIES);
                 break;
             case CollectableType.COBBLE:
-                inventory.AddItem(ItemType.COBBLESTONE);
+                isFull = inventory.AddItem(ItemType.COBBLESTONE);
                 break;
             case CollectableType.STICKDOWN:
-                inventory.AddItem(ItemType.STICK);
+                isFull = inventory.AddItem(ItemType.STICK);
                 break;
         }
+        if (isFull == -1) isRightTool = false;
+        else isRightTool = true;
         
+    }
+
+    public void CollectDropItem(DropItemController drop,out bool isRightTool)
+    {
+        if (inventory.AddItem(drop.GetItem()) == -1) isRightTool = false;
+        else isRightTool = true;
+
     }
 }

@@ -162,28 +162,28 @@ public class PlayerController : MonoBehaviour
                 case "Interact.WOOD":
                     if (inventory.ItemAt(currentHoldingIndex) == ItemType.STONE_AXE)
                     {
-                        collect.Collect(PlayerCollect.CollectableType.WOOD);
-                        isRightTool = true;
+                        collect.Collect(PlayerCollect.CollectableType.WOOD, out isRightTool);
                     }
                     break;
                 case "Interact.STONE":
                     if (inventory.ItemAt(currentHoldingIndex) == ItemType.STONE_PICKAXE)
                     {
-                        collect.Collect(PlayerCollect.CollectableType.STONE);
-                        isRightTool = true;
+                        collect.Collect(PlayerCollect.CollectableType.STONE, out isRightTool);
+                        //random gold
+                        if(isRightTool) if (Random.Range(0, 5) == 0) GetNewItem(ItemType.GOLD_PIECE);
                     }
                     break;
                 case "Interact.FOOD":
-                    collect.Collect(PlayerCollect.CollectableType.FOOD);
-                    isRightTool = true;
+                    collect.Collect(PlayerCollect.CollectableType.FOOD, out isRightTool);
                     break;
                 case "Interact.COBBLE":
-                    collect.Collect(PlayerCollect.CollectableType.COBBLE);
-                    isRightTool = true;
+                    collect.Collect(PlayerCollect.CollectableType.COBBLE, out isRightTool);
                     break;
                 case "Interact.STICKDOWN":
-                    collect.Collect(PlayerCollect.CollectableType.STICKDOWN);
-                    isRightTool = true;
+                    collect.Collect(PlayerCollect.CollectableType.STICKDOWN, out isRightTool);
+                    break;
+                case "Interact.DropItem":
+                    collect.CollectDropItem(GOinDistance.GetComponent<DropItemController>(), out isRightTool);
                     break;
             }
             if (isRightTool)

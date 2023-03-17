@@ -7,6 +7,7 @@ public class ResourceManager : MonoBehaviour
     public static Dictionary<string, Sprite> itemSprites;
     public static Dictionary<string, GameObject> furnitureGOs;
     public static Dictionary<string, GameObject> equipmentGOs;
+    public static GameObject dropItemPrefab;
 
     static ResourceManager()
     {
@@ -28,6 +29,7 @@ public class ResourceManager : MonoBehaviour
         {
             equipmentGOs.Add(prefab.name, prefab);
         }
+        dropItemPrefab = Resources.Load<GameObject>("Prefabs/Interactable/DropItem");
 
     }
 }

@@ -171,7 +171,7 @@ public class PlayerStatus
     {
         if (isSanZero)
         {
-
+            //effect
 
             if (san != 0) isSanZero = false;
         }

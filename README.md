@@ -1,2 +1,5 @@
 # MyDontStarve
-My Don't Starve
+My Don't Starve 介绍
+## 前言
+虽然之前看过一些Unity的入门视频，但自己单独做一个比较正式的项目还没有过。
+所以，这次的任务也算是一个挑战吧！这个文件介绍了项目里所有cs文件的用途。

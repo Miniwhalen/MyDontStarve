@@ -35,6 +35,14 @@ public class InventorySlot : MonoBehaviour,IPointerClickHandler,IBeginDragHandle
         FreshSprite();
     }
 
+    public void ThrowThisItem()
+    {
+        if (item == ItemType.EMPTY) return;
+        GameObject dropItemGO = Instantiate(ResourceManager.dropItemPrefab, PlayerController.Instance.transform.position, Quaternion.identity);
+        dropItemGO.GetComponent<DropItemController>().SetItem(item);
+        ChangeItem(ItemType.EMPTY);
+    }
+
     public void FreshSprite()
     {
         img.sprite = item.sprite;
@@ -55,7 +63,7 @@ public class InventorySlot : MonoBehaviour,IPointerClickHandler,IBeginDragHandle
                 }
                 break;
             case -2:
-                this.ChangeItem(ItemType.EMPTY);
+                this.ThrowThisItem();
                 break;
             case -3:
 
