@@ -30,7 +30,7 @@ third commit:README文件的更新
 ### RangeTrigger.cs
 与敌人探测玩家有关
 
-## EquipmentController.cs
+## EquipmentController
 
 ### StoneHelmetController.cs
 定义了防具的信息，如耐久
